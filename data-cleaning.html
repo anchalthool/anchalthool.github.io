@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/vectors/icons/data-icon-favicon.svg">
+  <!-- Icons -->
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/styles/variables.css" />
+  <link rel="stylesheet" href="assets/styles/bootstrap.css" />
+  <link rel="stylesheet" href="assets/styles/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/styles/github-markdown-light.css" />
+  <link rel="stylesheet" href="assets/styles/github-markdown-custom.css" />
+  <link rel="stylesheet" href="assets/styles/style.css" />
+  <link rel="stylesheet" href="assets/styles/anims.css" />
+  <link rel="stylesheet" href="assets/styles/feature-box.css" />
+  <link rel="stylesheet" href="assets/styles/projects.css" />
+  <link rel="stylesheet" href="assets/styles/contact-form.css" />
+  <link rel="stylesheet" href="assets/styles/swiper.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <tmp-navbar></tmp-navbar>
+  <!-- Main -->
+  <main data-scroll-index="4">
+    <!-- Project Container -->
+    <section id="project-coffee-beans-sales-analysis" class="section">
+      <div class="container">
+        <!-- Breadcrumb Navbar -->
+        <div class="nav-breadcrumb">
+          <nav aria-label="breadcrumb" class="text-center text-lg-start">
+            <ol class="breadcrumb d-inline-flex p-2 p-lg-3 mt-3">
+              <li class="breadcrumb-item"><a href="./index.html#home" class="text-decoration-none">Home</a></li>
+              <li class="breadcrumb-item"><a href="./index.html#projects" class="text-decoration-none">Projects</a></li>
+              <li class="breadcrumb-item active d-none d-lg-inline-block" aria-current="page">Data Cleaning</li>
+            </ol>
+          </nav>
+        </div>
+        <!-- Markdown Content -->
+        <section class="post">
+            <header class="major">
+                <span class="date">November, 2024</span>
+                <h1>Data Cleaning</h1>
+                <p>
+                    In the world of data analysis, one of the most time-consuming yet
+                    crucial tasks is data cleaning. Businesses gather raw data from
+                    various sources, but without proper cleaning and organization,
+                    this data cannot provide actionable insights. In this blog, I will
+                    walk you through a practical approach to cleaning and processing a
+                    dataset of business vacancies and recruitment areas using Python.
+                </p>
+            </header>
+            <div class="image main"><img src="/assets/images/indb2.png" alt="" /></div>
+
+            <p></p>
+            <h4>The Problem: Messy and Unusable Data</h4>
+            Imagine working with a dataset containing details about local
+            businesses, their job vacancies, geospatial coordinates, and
+            recruitment priorities. At first glance, the dataset is cluttered with
+            redundant columns, missing values, and complex, unstructured
+            information. Before analysis can even begin, the data must be cleaned,
+            structured, and transformed into a usable format.
+            <h5>My Approach</h5>
+            <li>Eliminate irrelevant or redundant data.</li>
+            <li>Handle missing values and inconsistencies.</li>
+            <li>
+                Combine and restructure related information into meaningful formats.
+            </li>
+            <li>Transform geospatial data for better usability.</li>
+            <li>Output a clean, ready-to-analyze dataset.</li>
+            <p>
+                The first step is to set up the environment by importing essential
+                libraries like pandas for data manipulation and geopy for geospatial
+                transformations.
+            </p>
+            <pre 
+         style="background-color: lightgrey; color: black; padding: 10px; border-radius: 5px;">
+<code>import pandas as pd
+from geopy.geocoders import Nominatim
+</code></pre>
+            <p>
+                I loaded an Excel file containing raw business vacancy data into a
+                Pandas DataFrame for processing.
+            </p>
+            <pre style="background-color: lightgrey; color: black; padding: 10px; border-radius: 5px;">
+<code>file_path = '/content/P1-Unclean-Local-vacancies-mapping-YGA-Q2I-Raw.xlsx'
+data_df = pd.read_excel(file_path, sheet_name='Data')
+</code></pre>
+            <p>
+                Many datasets include unnecessary columns. We identified and
+                retained only the columns that contribute to the analysis, such as
+                business names, economic sectors, and geospatial coordinates.
+            </p>
+            <pre style="background-color: lightgrey; color: black; padding: 10px; border-radius: 5px;">
+<code>relevant_columns = ['_id', 'Business name:', 'Economic sector:', '_Exact Location_latitude', '_Exact Location_longitude', ...]
+df = df[relevant_columns].copy()
+</code></pre>
+            <p>
+                Missing data, especially in contact details, can cause errors during
+                analysis. To address this, we filled missing phone numbers with "Not
+                Available" for consistency.
+            </p>
+            <pre style="background-color: lightgrey; color: black; padding: 10px; border-radius: 5px;">
+<code>df['Phone Number'] = df['Phone Number'].fillna('Not Available')
+</code></pre>
+            <p>
+                The dataset contained two separate columns for phone numbers. These
+                were combined into a single column, eliminating duplicates and
+                ensuring clarity.
+            </p>
+            <pre style="background-color: lightgrey; color: black; padding: 10px; border-radius: 5px;">
+<code>df['Phone Numbers'] = df.apply(lambda x: list(set([str(x['Phone Number']), str(x['Business Phone Number'])])), axis=1)
+df['Phone Numbers'] = df['Phone Numbers'].apply(lambda x: ', '.join(x))
+</code></pre>
+            <p>
+                The latitude and longitude columns were combined into a tuple for
+                better usability in geospatial analyses or mapping.
+            </p>
+            <pre style="background-color: lightgrey; color: black; padding: 10px; border-radius: 5px;">
+<code>df['Location'] = list(zip(df['_Exact Location_latitude'], df['_Exact Location_longitude']))
+</code></pre>
+
+            <p>
+                Job positions were spread across multiple columns. By consolidating
+                this data into a single column, we made the dataset more structured
+                and easier to query.
+            </p>
+            <pre style="background-color: lightgrey; color: black; padding: 10px; border-radius: 5px;">
+<code>df['Job Positions'] = df[job_position_cols].apply(lambda row: {...}, axis=1).apply(str)
+
+</code></pre>
+
+            <p>
+                I grouped recruitment areas and priority areas into concise
+                dictionaries to represent the data in a user-friendly format.
+            </p>
+            <pre style="background-color: lightgrey; color: black; padding: 10px; border-radius: 5px;">
+<code>df['Priority Recruitment Areas'] = df[priority_recruitment_cols].apply(lambda row: {...}, axis=1).apply(str)
+df['Recruitment Areas'] = df[recruitment_areas_cols].apply(lambda row: {...}, axis=1).apply(str)
+
+</code></pre>
+            <div class="image main"><img src="assets/images/indb3.png" alt="" /></div><br/>
+            <h3>Why This Matters</h3>
+            <p>
+                Clean data is the backbone of effective business decisions. A
+                structured dataset allows stakeholders to:
+
+                <br />Identify trends in job vacancies and recruitment priorities.
+                <br />Map business locations for geospatial analysis. <br />Assess
+                economic sector performance.
+            </p>
+<br/>
+            <a href="https://github.com/coolkidank/" target="_blank"
+                rel="noopener noreferrer">Visit GitHub Repository</a>
+        </section>
+    </div>
+
+   
+  
+        <!-- Button Navigation -->
+        <div class="col-12 p-2 p-lg-3">
+          <div class="d-flex justify-content-between">
+            <a href="./storm-analysis.html" class="colored-btn mt-1">Prev. Project</a>
+            <a href="#" class="colored-btn mt-1">Next Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Form -->
+    <tmp-contact></tmp-contact>
+    <!-- Footer -->
+    <tmp-footer></tmp-footer>
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/scripts/bootstrap.bundle.js"></script>
+  <script src="assets/scripts/jquery-3.7.1.min.js"></script>
+  <script src="assets/scripts/typed.umd.js"></script>
+  <script src="assets/scripts/swiper-bundle.min.js"></script>
+  <script src="assets/scripts/scrollIt.js"></script>
+  <script src="assets/scripts/script.js"></script>
+  <script src="assets/scripts/template-loader.js"></script>
+  <script src="assets/scripts/path-replacer.js"></script>
+</body>
+
+</html>
