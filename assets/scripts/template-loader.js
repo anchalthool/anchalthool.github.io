@@ -35,7 +35,7 @@ class tmpNavbar extends HTMLElement {
   
           <!-- View Resume -->
           <div class="ms-auto d-none d-lg-block">
-            <a class="colored-btn" href="#">Download Resume</a>
+            <a class="colored-btn" href="https://drive.google.com/file/d/15VaOp2qwPvQbiVy31dThE40ykFx-xn3a/view?usp=sharing">Download Resume</a>
           </div>
   
           <!-- Menu Toggle -->

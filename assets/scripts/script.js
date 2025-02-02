@@ -105,7 +105,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   // Typing Animation
   new Typed("#type-it", {
-    strings: ["Data Analyst", "Programmer"],
+    strings: ["Leader", "Programmer","Scholar"],
     typeSpeed: 75,
     loop: true,
   });
