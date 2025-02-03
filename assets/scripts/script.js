@@ -105,7 +105,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   // Typing Animation
   new Typed("#type-it", {
-    strings: ["Leader", "Programmer","Scholar"],
+    strings: ["Leader", "Programmer","Tech Enthusiast"],
     typeSpeed: 75,
     loop: true,
   });
@@ -156,12 +156,18 @@ const services = [
     { icon: "bx bxs-bar-chart-alt-2", title: "Power BI" },
     { icon: "bx bxs-cube", title: "Tableau" },
     { icon: "bx bx-calculator", title: "DAX" },
+    { icon: "bx bx-terminal", title: "JIRA" },
     { icon: "bx bx-data", title: "SQL" },
     { icon: "bx bxl-python", title: "Python" },
     { icon: "bx bx-grid-alt", title: "NumPy" },
     { icon: "bx bx-bar-chart", title: "pandas" },
     { icon: "bx bx-pie-chart-alt-2", title: "Matplotlib" },
-    { icon: "bx bx-scatter-chart", title: "Tableau Prep Builder" },
+    { icon: "bx bx-scatter-chart", title: "GanttPRO" },
+    { icon: "bx bx-fingerprint", title: "SAP ERP" },
+    { icon: "bx bx-pie-chart", title: "Lucidchart" },
+    { icon: "bx bx-math", title: "AWS" },
+    { icon: "bx bx-pencil", title: "CI/CD" },
+    { icon: "bx bx-color", title: "Google Analytics" },
     // Add more skills as needed
   ];
 

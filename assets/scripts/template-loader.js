@@ -33,10 +33,11 @@ class tmpNavbar extends HTMLElement {
             </ul>
           </div>
   
-          <!-- View Resume -->
-          <div class="ms-auto d-none d-lg-block">
-            <a class="colored-btn" href="https://drive.google.com/file/d/15VaOp2qwPvQbiVy31dThE40ykFx-xn3a/view?usp=sharing">Download Resume</a>
-          </div>
+         <!-- View Resume -->
+<div class="ms-auto d-none d-lg-block">
+  <a class="colored-btn" href="https://drive.google.com/file/d/15VaOp2qwPvQbiVy31dThE40ykFx-xn3a/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download Resume</a>
+</div>
+
   
           <!-- Menu Toggle -->
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
