@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Health NLP</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poiret+One&family=Savate:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">&lt;</a>
+  </header>
+
+  <section class="projectpage">
+    <h1 > E-Health NLP (Voice-Based Prescription App) </h1>
+  </section>
+
+  <section class="projectpage">
+    <h2>Overview</h2>
+    <p>
+      E-Health NLP is a voice-enabled web application that allows doctors to dictate medical prescriptions, which are then transcribed, processed using Natural Language Processing (NLP), and optionally stored or displayed. The platform also supports basic user management and separate dashboards for patients and doctors.
+    </p>
+
+    <h2>Tech Stack</h2>
+    <table>
+      <thead>
+        <tr><td>Layer</td><td>Tech Used</td></tr>
+      </thead>
+     <tbody>
+<tr><td>Frontend</td><td>React</td></tr>
+<tr><td>Backend</td><td>Node.js, Express</td></tr>
+<tr><td>Authentication</td><td>JWT / Sessions</td></tr>
+<tr><td>Database</td><td>MongoDB (Compass)</td></tr>
+<tr><td>Visualization</td><td>Charting library (Chart.js / Recharts)</td></tr>
+<tr><td>Server</td><td>Node / Express development server</td></tr>
+</tbody>
+    </table>
+
+    <h2>Key Features</h2>
+   
+      <p>Voice-to-Text: Doctors can upload recorded voice (or dictate) prescriptions, which are transcribed using Google's Speech Recognition API.</p>
+      <p>NLP Parsing: Transcribed text is processed to extract structured information like medicine name, dosage, frequency, etc.</p>
+      <p>User Roles: Doctors and Patients have separate registration and dashboards.</p>
+      <p>Modular Code: Separated routes, templates, and processing logic for clean maintainability.</p>
+    
+
+    <h2>Architecture Overview</h2>
+    <pre>
+[User Browser]
+     |
+     v
+[Flask App (app.py)]
+     |
+ ┌───┼────────────┐
+ |   v            v
+[Voice Upload]  [Web Routes]
+     |            |
+     v            v
+[SpeechRecognition]      [Jinja2 Templates]
+     |
+     v
+[NLP Parser (listen())]
+     |
+     v
+[MongoDB (store/display prescription)]
+    </pre>
+
+    <h2>Folder Highlights</h2>
+    
+       <p> app.py – Flask app entry point and route definitions. </p>
+       <p> VoicePrescrip/VoicePrescription.py  – Core NLP logic for parsing prescription text. </p>
+       <p> user/  – Auth and user-related routes. </p>
+       <p> templates/  – Jinja2-based HTML templates for UI. </p>
+       <p> static/  – Static assets (CSS, JS, images). </p>
+       <p> requirements.txt  – Python dependencies. </p>
+    
+
+    <h2>How It Works (Simple Flow)</h2>
+    
+       <p>Doctor logs in and records/upload voice prescription. </p>
+       <p>App transcribes audio → text using Google STT API. </p>
+       <p>Text is parsed using simple NLP logic (listen()). </p>
+       <p>Extracted prescription is shown on screen or saved to DB. </p>
+       <p>Patient/Doctor can view dashboards. </p>
+    
+
+  </section>
+</body>
+</html>
+
