@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoLaunch Cloud Pipeline</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo" aria-label="Back to home">&larr;</a>
+  </header>
+
+  <section class="projectpage">
+    <h1>AutoLaunch Cloud Pipeline</h1>
+    <p>
+      A containerized build server that clones a frontend Git repository, installs dependencies,
+      runs a production build, and uploads static assets to Amazon S3 — similar to the core
+      build-and-deploy flow used by platforms like Vercel and Netlify.
+    </p>
+  </section>
+
+  <section class="projectpage">
+    <div class="github-link">
+      <a href="https://github.com/anchalthool/autolaunch-cloud-pipeline" target="_blank" rel="noopener">
+        View on GitHub
+      </a>
+    </div>
+
+    <h2>What It Does</h2>
+    <ul>
+      <li><strong>Builds frontend apps in a container</strong> for consistent, reproducible builds.</li>
+      <li><strong>Deploys static assets to S3</strong> so websites can be served from cloud storage/CDNs.</li>
+      <li><strong>Stores outputs under a unique project ID</strong> to support multiple deployments.</li>
+    </ul>
+
+    <h2>How It Works</h2>
+    <ol>
+      <li>Accepts a Git repository URL and a project ID.</li>
+      <li>Clones the repo inside a Docker container.</li>
+      <li>Runs <code>npm install</code> and <code>npm run build</code>.</li>
+      <li>Uploads files from <code>dist/</code> to Amazon S3.</li>
+      <li>Stores outputs under <code>s3://&lt;bucket&gt;/&lt;project-id&gt;/</code>.</li>
+    </ol>
+
+    <h2>Tech Stack</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Tools</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Runtime</td><td>Node.js</td></tr>
+        <tr><td>Cloud Storage</td><td>AWS S3 (AWS SDK v3)</td></tr>
+        <tr><td>Containerization</td><td>Docker</td></tr>
+        <tr><td>Automation</td><td>Bash</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Environment Variables</h2>
+    <pre>
+GIT_REPOSITORY_URL=https://github.com/user/repo.git
+PROJECT_ID=my-project
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=****
+AWS_SECRET_ACCESS_KEY=****
+    </pre>
+
+    <h2>Run with Docker</h2>
+    <p>Build and run the containerized build server using the commands below:</p>
+
+    <pre>
+# Build the Docker image
+docker build -t build-server .
+
+# Run the Docker container
+docker run --rm \
+  -e GIT_REPOSITORY_URL=https://github.com/user/repo.git \
+  -e PROJECT_ID=my-project \
+  -e AWS_REGION=us-east-1 \
+  -e AWS_ACCESS_KEY_ID=your-access-key-id \
+  -e AWS_SECRET_ACCESS_KEY=your-secret-access-key \
+  build-server
+    </pre>
+
+    <p>
+      Replace the placeholder values with your Git repository URL, AWS credentials, and project ID.
+      For production use, prefer IAM roles or scoped credentials instead of long-lived keys.
+    </p>
+
+    <h2>Why This Project Matters</h2>
+    <p>
+      This project demonstrates practical DevOps fundamentals: containerized build reproducibility,
+      CI/CD-style automation, artifact storage, and cloud deployment patterns. It also highlights
+      how modern “deploy platforms” work under the hood.
+    </p>
+  </section>
+</body>
+</html>

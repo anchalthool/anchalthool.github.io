@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go-TaskQ</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo" aria-label="Back to home">&larr;</a>
+  </header>
+
+  <section class="projectpage">
+    <h1>Go-TaskQ</h1>
+    <p>
+      A production-style distributed task queue built in Go. It exposes a gRPC API for job submission and polling,
+      stores jobs durably in Redis, supports priority scheduling, delayed retries, dead-letter queues, and includes
+      Prometheus metrics for observability.
+    </p>
+  </section>
+
+  <section class="projectpage">
+    <div class="github-link">
+      <a href="https://github.com/anchalthool/go-taskq" target="_blank" rel="noopener">
+        View on GitHub
+      </a>
+    </div>
+
+    <h2>Why I Built This</h2>
+    <p>
+      I wanted to understand how real systems like Celery, Sidekiq, and SQS-based workers behave under failure:
+      retries, backoff, durability, fairness across queues, and what “reliable background processing” actually means
+      when a process crashes or a network hiccups. Go-TaskQ is my attempt to build that foundation end-to-end.
+    </p>
+
+    <h2>What It Enables</h2>
+    <p>
+      Go-TaskQ is designed for reliable background work such as webhooks, async pipelines, scheduled jobs, and any task
+      you don’t want blocking a request path. The system prioritizes durability, predictable retries, and visibility
+      into what’s happening via metrics.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>gRPC API:</strong> Submit jobs and poll for work with a structured, strongly-typed interface.</li>
+      <li><strong>Durable Redis storage:</strong> Job metadata is persisted so jobs aren’t lost on restarts.</li>
+      <li><strong>Priority queues:</strong> High / medium / low queues to control execution order and fairness.</li>
+      <li><strong>Delayed retries:</strong> Retry scheduling using Redis sorted sets (time-based release).</li>
+      <li><strong>Dead-letter queue:</strong> Failed jobs move to DLQ after retry exhaustion for later inspection.</li>
+      <li><strong>Leader-aware scheduler:</strong> Foundation for HA retry scheduling and coordination.</li>
+      <li><strong>Observability:</strong> Prometheus metrics for enqueue throughput, retry movement, and queue depth.</li>
+      <li><strong>grpcurl-friendly:</strong> Reflection enabled for fast local testing without writing a client.</li>
+    </ul>
+
+    <h2>Architecture Overview</h2>
+    <pre>
+Client (grpcurl / app)
+        |
+        v
+   gRPC API Server
+        |
+        v
+     Redis
+   ├── job:&lt;id&gt;          (job metadata)
+   ├── queue:high        (ready queues)
+   ├── queue:med
+   ├── queue:low
+   ├── retry:zset        (delayed retries)
+   └── dlq:list          (dead-letter queue)
+        |
+        v
+    Worker Pool
+    </pre>
+
+    <h2>Tech Stack</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Tools</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Language</td><td>Go</td></tr>
+        <tr><td>RPC</td><td>gRPC + Protobuf</td></tr>
+        <tr><td>Queue Backend</td><td>Redis</td></tr>
+        <tr><td>Monitoring</td><td>Prometheus</td></tr>
+        <tr><td>Local Testing</td><td>grpcurl</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Project Structure</h2>
+    <pre>
+go-taskq/
+  cmd/
+    api/          # gRPC API server
+    worker/       # workers (planned)
+    scheduler/    # retry scheduler
+  internal/
+    queue/        # Redis queue implementation
+    grpcapi/      # gRPC handlers
+    metrics/      # Prometheus metrics
+    retry/        # backoff logic
+    election/     # leader election (etcd)
+  proto/
+    taskq/v1/     # protobuf definitions
+  gen/
+    proto/        # generated gRPC code
+  deployments/
+    prometheus.yml
+    </pre>
+
+    <h2>Run Locally</h2>
+    <p>Start Redis:</p>
+    <pre>
+brew services start redis
+# or
+redis-server
+    </pre>
+
+    <p>Run the API server:</p>
+    <pre>
+REDIS_ADDR=localhost:6379 GRPC_ADDR=:9000 go run ./cmd/api
+    </pre>
+
+    <p>You should see logs like:</p>
+    <pre>
+[api] gRPC on :9000 (redis=localhost:6379)
+[api] metrics on :9100
+    </pre>
+
+    <h2>Test with grpcurl</h2>
+    <p>List services:</p>
+    <pre>
+grpcurl -plaintext 127.0.0.1:9000 list
+    </pre>
+
+    <p>List methods:</p>
+    <pre>
+grpcurl -plaintext 127.0.0.1:9000 list taskq.v1.TaskQ
+    </pre>
+
+    <p>Enqueue an example webhook job:</p>
+    <pre>
+grpcurl -plaintext -d '{
+  "type":"webhook",
+  "payloadJson":"eyJ1cmwiOiJodHRwczovL2h0dHBiaW4ub3JnL3Bvc3QifQ==",
+  "priority":"high"
+}' 127.0.0.1:9000 taskq.v1.TaskQ/Enqueue
+    </pre>
+
+    <h2>Prometheus Monitoring</h2>
+    <p>Metrics endpoint:</p>
+    <pre>
+http://localhost:9100/metrics
+    </pre>
+
+    <p>Run Prometheus locally:</p>
+    <pre>
+docker run --rm -p 9090:9090 \
+  -v "$(pwd)/deployments/prometheus.yml:/etc/prometheus/prometheus.yml:ro" \
+  prom/prometheus
+    </pre>
+
+    <p>Open the Prometheus UI:</p>
+    <pre>
+http://localhost:9090
+    </pre>
+
+    <p>Example metrics to explore:</p>
+    <pre>
+taskq_jobs_enqueued_total
+taskq_scheduler_moved_total
+    </pre>
+
+    <h2>What This Project Shows</h2>
+    <p>
+      Go-TaskQ demonstrates core distributed systems patterns: durable job storage, priority scheduling,
+      time-based retries, DLQ mechanics, API design with gRPC, and real observability with metrics.
+      It’s a strong “systems” project that reflects how background processing is built in production.
+    </p>
+  </section>
+</body>
+</html>

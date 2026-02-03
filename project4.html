@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevOps Copilot</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo" aria-label="Back to home">&larr;</a>
+  </header>
+
+  <section class="projectpage">
+    <h1>DevOps Copilot</h1>
+    <p>
+      A natural language DevOps agent that helps engineers manage cloud infrastructure using plain English.
+      DevOps Copilot interprets requests, maintains conversational context, and executes safe operations across
+      Kubernetes and AWS — directly from a Python-based CLI.
+    </p>
+  </section>
+
+  <section class="projectpage">
+    <div class="github-link">
+      <a href="https://github.com/anchalthool/devops-pilot" target="_blank" rel="noopener">
+        View on GitHub
+      </a>
+    </div>
+
+    <h2>Why I Built This</h2>
+    <p>
+      DevOps workflows are powerful but fragmented — engineers jump between <code>kubectl</code>, Helm, AWS tooling,
+      YAML manifests, and scripts just to answer simple questions or complete routine tasks. DevOps Copilot reduces that
+      friction by acting as a conversational layer over real infrastructure tools, while still keeping humans in control.
+    </p>
+
+    <h2>What It Enables</h2>
+    <p>Instead of memorizing commands, you can describe what you want:</p>
+    <ul>
+      <li><em>“List all running pods in the default namespace.”</em></li>
+      <li><em>“Launch three EC2 instances in the test environment.”</em></li>
+      <li><em>“Delete the bucket I just created.”</em></li>
+    </ul>
+    <p>
+      The agent converts these into structured actions and executes them using Kubernetes and AWS integrations,
+      with safeguards for any destructive or high-risk operations.
+    </p>
+
+    <h2>Core Capabilities</h2>
+    <ul>
+      <li><strong>Conversational Intelligence:</strong> Uses an LLM via LangChain to interpret intent and map it to DevOps actions.</li>
+      <li><strong>Context Memory:</strong> Tracks recent entities so phrases like “that deployment” resolve correctly.</li>
+      <li><strong>Approval Gate:</strong> Requires explicit confirmation before risky commands (delete/terminate/overwrite).</li>
+      <li><strong>Reasoning Visibility:</strong> Streams intermediate reasoning to the console in a subtle, readable format.</li>
+      <li><strong>Auditability:</strong> Logs actions so you can trace what was executed and when.</li>
+    </ul>
+
+    <h2>Integrations</h2>
+
+    <h2>Kubernetes</h2>
+    <ul>
+      <li>Resource listing, describe, apply, delete, and watch</li>
+      <li>Helm chart management</li>
+      <li>TTL-based resource caching to reduce repeated API calls</li>
+    </ul>
+
+    <h2>AWS</h2>
+    <ul>
+      <li>EC2 instance lifecycle (launch, terminate, modify)</li>
+      <li>S3 operations (create, upload, list, delete)</li>
+      <li>DynamoDB tables and item management</li>
+      <li>Retries + pagination handling for reliability</li>
+    </ul>
+
+    <h2>Docker (In Progress)</h2>
+    <ul>
+      <li>Image build workflows, container lifecycle management, registry operations</li>
+    </ul>
+
+    <h2>System Architecture</h2>
+    <pre>
+[CLI (REPL)]
+    |
+    v
+[Conversational Core]
+(Intent + Memory + Approval Gate)
+    |
+    v
+[Tool Abstraction Layer]
+(AWS Toolkit | Kubernetes Toolkit | Docker Toolkit)
+    |
+    v
+[External Systems]
+(kubectl/helm, boto3/AWS APIs, credentials, logs)
+    </pre>
+
+    <h2>Tech Stack</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Tools</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Language Model</td><td>OpenAI GPT-4 via LangChain (ChatOpenAI)</td></tr>
+        <tr><td>Cloud SDKs</td><td>boto3 (AWS), kubectl & helm (Kubernetes)</td></tr>
+        <tr><td>Backend</td><td>Python 3.10</td></tr>
+        <tr><td>Libraries</td><td>LangChain, OpenAI SDK, PyYAML, pytest</td></tr>
+        <tr><td>Runtime</td><td>Command-line REPL</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Getting Started</h2>
+    <p>
+      Clone the repo, configure credentials, and start the REPL. The agent will use your existing AWS / Kubernetes setup
+      (profiles, role assumption, kubeconfig) the same way you already do locally.
+    </p>
+
+    <pre>
+git clone https://github.com/anchalthool/devopscopilot.git
+cd devopscopilot
+
+# Create a .env file with:
+OPENAI_API_KEY=...
+AWS_ACCESS_KEY_ID=...
+AWS_SECRET_ACCESS_KEY=...
+AWS_REGION=us-east-1
+MODEL_NAME=gpt-4
+TEMPERATURE=0.3
+    </pre>
+
+
+    <h2>What This Shows</h2>
+    <p>
+      This project demonstrates applied AI + infrastructure engineering: tool routing, safety gates, stateful interaction,
+      and real integrations with production DevOps surfaces. It’s a practical example of building AI agents that are useful,
+      reliable, and controlled — not just “chatbots”.
+    </p>
+  </section>
+</body>
+</html>

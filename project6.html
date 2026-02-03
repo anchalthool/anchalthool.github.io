@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disappearing Encrypted Group Messaging</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo" aria-label="Back to home">&larr;</a>
+  </header>
+
+  <section class="projectpage">
+    <h1>Disappearing Encrypted Group Messaging</h1>
+    <p>
+      A privacy-first, WhatsApp-style group chat web app with time-bound groups, secure invite onboarding,
+      and browser-based end-to-end encryption. Groups automatically expire and revoke access, enabling
+      lifecycle-managed collaboration for sensitive or temporary conversations.
+    </p>
+  </section>
+
+  <section class="projectpage">
+    <div class="github-link">
+      <a href="https://github.com/anchalthool/encrypted-disappearing-chat" target="_blank" rel="noopener">
+        View on GitHub
+      </a>
+    </div>
+
+    <h2>Why I Built This</h2>
+    <p>
+      Many group chats are effectively permanent — messages live forever, members linger, and old links keep working.
+      I wanted to explore a model that feels more “ephemeral”: groups should have a clear lifecycle, invites should expire,
+      and the server should never see plaintext messages. This project was built to learn end-to-end encryption workflows,
+      privacy-first design, and secure group lifecycle enforcement.
+    </p>
+
+    <h2>What It Does</h2>
+    <ul>
+      <li><strong>End-to-end encrypted group chat:</strong> Messages are encrypted in the browser and only decrypted by members.</li>
+      <li><strong>Disappearing groups:</strong> Groups automatically expire (1 day / 7 days / custom date-time).</li>
+      <li><strong>Secure invite onboarding:</strong> Expiring invite links allow controlled access via tokens.</li>
+      <li><strong>Role-based access:</strong> Group creators act as admins and control invite creation.</li>
+      <li><strong>WhatsApp-inspired UI:</strong> Two-column layout with chat bubbles and expiry indicators.</li>
+    </ul>
+
+    <h2>Security Model</h2>
+    <p>
+      The backend stores only ciphertext — it never receives or persists plaintext messages. Encryption and decryption happen
+      entirely in the client using the browser’s Web Crypto APIs. Group keys are derived from a passphrase, so only users with
+      the passphrase can decrypt the chat history.
+    </p>
+
+    <h2>End-to-End Encryption Flow</h2>
+    <pre>
+User enters group passphrase (client-side)
+        |
+        v
+Browser derives AES key via PBKDF2
+        |
+        v
+Message encrypted locally (AES-GCM)
+        |
+        v
+Server stores only: { ciphertext, iv }
+        |
+        v
+Clients decrypt locally using same derived key
+    </pre>
+
+    <h2>Architecture Overview</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Implementation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Frontend</td>
+          <td>React (Vite), Web Crypto API (AES-GCM encryption/decryption)</td>
+        </tr>
+        <tr>
+          <td>Backend</td>
+          <td>Node.js + Express, JWT auth, lifecycle rules</td>
+        </tr>
+        <tr>
+          <td>Database</td>
+          <td>PostgreSQL (groups, memberships, invites, encrypted messages)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Core UX Flows</h2>
+    <ul>
+      <li><strong>Create group:</strong> choose expiry policy (1 day / 7 days / custom time)</li>
+      <li><strong>Invite members:</strong> admin generates token-based invite links that can expire</li>
+      <li><strong>Join group:</strong> user logs in → auto-joins via token → enters passphrase → decrypts messages</li>
+      <li><strong>Expiry:</strong> once expired, messaging and access are revoked automatically</li>
+    </ul>
+
+    <h2>Project Structure</h2>
+    <pre>
+.
+├── client/        # React frontend (UI + encryption)
+├── server/        # Node.js backend (auth, groups, invites, messages)
+└── README.md
+    </pre>
+
+    <h2>Run Locally</h2>
+    <h2>Backend</h2>
+    <pre>
+cd server
+npm install
+npm run dev
+    </pre>
+
+    <p>Create <code>server/.env</code>:</p>
+    <pre>
+PORT=4000
+DATABASE_URL=postgres://user:password@localhost:5432/disappearing_groups
+JWT_SECRET=your-secret-key
+    </pre>
+
+    <h2>Frontend</h2>
+    <pre>
+cd client
+npm install
+npm run dev
+    </pre>
+
+    <h2>Invite Flow</h2>
+    <p>Open the invite URL:</p>
+    <pre>
+http://localhost:&lt;vite_port&gt;/join/&lt;token&gt;
+    </pre>
+    <p>
+      Login → auto-join → enter passphrase → decrypt messages.
+    </p>
+
+    <h2>What This Project Shows</h2>
+    <p>
+      This project demonstrates full-stack security-aware engineering: client-side encryption, key derivation,
+      token-based onboarding, group lifecycle enforcement, and clean UX patterns for privacy-first products.
+      It’s a practical exploration of “zero-knowledge” storage applied to real-time group collaboration.
+    </p>
+  </section>
+</body>
+</html>
