@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 610" fill="none">
+<title>The borrowed world — an original architectural engraving</title>
+<desc>A floating antique key within a Gothic stone arch, surrounded by ivy, celestial marks, and fine engraved lines. An artistic metaphor for access and sharing.</desc>
+<defs>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0V5" stroke="#596d65" stroke-width=".55" opacity=".5"/></pattern>
+<pattern id="fine" width="3" height="3" patternUnits="userSpaceOnUse"><path d="M0 0V3" stroke="#788a7e" stroke-width=".4" opacity=".5"/></pattern>
+<clipPath id="portal"><path d="M208 478V249Q208 167 320 91Q432 167 432 249V478Z"/></clipPath>
+<radialGradient id="light"><stop stop-color="#f2eadd"/><stop offset="1" stop-color="#b7c3b8"/></radialGradient>
+<linearGradient id="gold" x2="1" y2="1"><stop stop-color="#d6c5a2"/><stop offset=".45" stop-color="#af936a"/><stop offset="1" stop-color="#dccdb0"/></linearGradient>
+<g id="leaf"><path d="M0 0C-19-2-25-19-26-31C-9-29 4-15 0 0Z" fill="#bac6b7" stroke="#52675a" stroke-width=".9"/><path d="M0 0L-23-28M-5-6L-17-8M-9-12L-21-16M-12-16L-12-24" stroke="#52675a" stroke-width=".55"/></g>
+</defs>
+<!-- Celestial survey marks -->
+<g stroke="#61746a" opacity=".45"><circle cx="320" cy="280" r="222" stroke-width=".65"/><circle cx="320" cy="280" r="228" stroke-width=".4" stroke-dasharray="1 6"/><path d="M320 35V525M74 280H566" stroke-width=".5" stroke-dasharray="3 7"/><ellipse cx="320" cy="280" rx="262" ry="84" transform="rotate(-24 320 280)" stroke-width=".7"/></g>
+
+<path d="M548.00 280.00L554.00 280.00" stroke="#61746a" stroke-width=".6"/>
+<path d="M547.13 299.87L550.12 300.13" stroke="#61746a" stroke-width=".6"/>
+<path d="M544.54 319.59L547.49 320.11" stroke="#61746a" stroke-width=".6"/>
+<path d="M540.23 339.01L543.13 339.79" stroke="#61746a" stroke-width=".6"/>
+<path d="M534.25 357.98L537.07 359.01" stroke="#61746a" stroke-width=".6"/>
+<path d="M526.64 376.36L529.36 377.62" stroke="#61746a" stroke-width=".6"/>
+<path d="M517.45 394.00L522.65 397.00" stroke="#61746a" stroke-width=".6"/>
+<path d="M506.77 410.78L509.22 412.50" stroke="#61746a" stroke-width=".6"/>
+<path d="M494.66 426.56L496.96 428.48" stroke="#61746a" stroke-width=".6"/>
+<path d="M481.22 441.22L483.34 443.34" stroke="#61746a" stroke-width=".6"/>
+<path d="M466.56 454.66L468.48 456.96" stroke="#61746a" stroke-width=".6"/>
+<path d="M450.78 466.77L452.50 469.22" stroke="#61746a" stroke-width=".6"/>
+<path d="M434.00 477.45L437.00 482.65" stroke="#61746a" stroke-width=".6"/>
+<path d="M416.36 486.64L417.62 489.36" stroke="#61746a" stroke-width=".6"/>
+<path d="M397.98 494.25L399.01 497.07" stroke="#61746a" stroke-width=".6"/>
+<path d="M379.01 500.23L379.79 503.13" stroke="#61746a" stroke-width=".6"/>
+<path d="M359.59 504.54L360.11 507.49" stroke="#61746a" stroke-width=".6"/>
+<path d="M339.87 507.13L340.13 510.12" stroke="#61746a" stroke-width=".6"/>
+<path d="M320.00 508.00L320.00 514.00" stroke="#61746a" stroke-width=".6"/>
+<path d="M300.13 507.13L299.87 510.12" stroke="#61746a" stroke-width=".6"/>
+<path d="M280.41 504.54L279.89 507.49" stroke="#61746a" stroke-width=".6"/>
+<path d="M260.99 500.23L260.21 503.13" stroke="#61746a" stroke-width=".6"/>
+<path d="M242.02 494.25L240.99 497.07" stroke="#61746a" stroke-width=".6"/>
+<path d="M223.64 486.64L222.38 489.36" stroke="#61746a" stroke-width=".6"/>
+<path d="M206.00 477.45L203.00 482.65" stroke="#61746a" stroke-width=".6"/>
+<path d="M189.22 466.77L187.50 469.22" stroke="#61746a" stroke-width=".6"/>
+<path d="M173.44 454.66L171.52 456.96" stroke="#61746a" stroke-width=".6"/>
+<path d="M158.78 441.22L156.66 443.34" stroke="#61746a" stroke-width=".6"/>
+<path d="M145.34 426.56L143.04 428.48" stroke="#61746a" stroke-width=".6"/>
+<path d="M133.23 410.78L130.78 412.50" stroke="#61746a" stroke-width=".6"/>
+<path d="M122.55 394.00L117.35 397.00" stroke="#61746a" stroke-width=".6"/>
+<path d="M113.36 376.36L110.64 377.62" stroke="#61746a" stroke-width=".6"/>
+<path d="M105.75 357.98L102.93 359.01" stroke="#61746a" stroke-width=".6"/>
+<path d="M99.77 339.01L96.87 339.79" stroke="#61746a" stroke-width=".6"/>
+<path d="M95.46 319.59L92.51 320.11" stroke="#61746a" stroke-width=".6"/>
+<path d="M92.87 299.87L89.88 300.13" stroke="#61746a" stroke-width=".6"/>
+<path d="M92.00 280.00L86.00 280.00" stroke="#61746a" stroke-width=".6"/>
+<path d="M92.87 260.13L89.88 259.87" stroke="#61746a" stroke-width=".6"/>
+<path d="M95.46 240.41L92.51 239.89" stroke="#61746a" stroke-width=".6"/>
+<path d="M99.77 220.99L96.87 220.21" stroke="#61746a" stroke-width=".6"/>
+<path d="M105.75 202.02L102.93 200.99" stroke="#61746a" stroke-width=".6"/>
+<path d="M113.36 183.64L110.64 182.38" stroke="#61746a" stroke-width=".6"/>
+<path d="M122.55 166.00L117.35 163.00" stroke="#61746a" stroke-width=".6"/>
+<path d="M133.23 149.22L130.78 147.50" stroke="#61746a" stroke-width=".6"/>
+<path d="M145.34 133.44L143.04 131.52" stroke="#61746a" stroke-width=".6"/>
+<path d="M158.78 118.78L156.66 116.66" stroke="#61746a" stroke-width=".6"/>
+<path d="M173.44 105.34L171.52 103.04" stroke="#61746a" stroke-width=".6"/>
+<path d="M189.22 93.23L187.50 90.78" stroke="#61746a" stroke-width=".6"/>
+<path d="M206.00 82.55L203.00 77.35" stroke="#61746a" stroke-width=".6"/>
+<path d="M223.64 73.36L222.38 70.64" stroke="#61746a" stroke-width=".6"/>
+<path d="M242.02 65.75L240.99 62.93" stroke="#61746a" stroke-width=".6"/>
+<path d="M260.99 59.77L260.21 56.87" stroke="#61746a" stroke-width=".6"/>
+<path d="M280.41 55.46L279.89 52.51" stroke="#61746a" stroke-width=".6"/>
+<path d="M300.13 52.87L299.87 49.88" stroke="#61746a" stroke-width=".6"/>
+<path d="M320.00 52.00L320.00 46.00" stroke="#61746a" stroke-width=".6"/>
+<path d="M339.87 52.87L340.13 49.88" stroke="#61746a" stroke-width=".6"/>
+<path d="M359.59 55.46L360.11 52.51" stroke="#61746a" stroke-width=".6"/>
+<path d="M379.01 59.77L379.79 56.87" stroke="#61746a" stroke-width=".6"/>
+<path d="M397.98 65.75L399.01 62.93" stroke="#61746a" stroke-width=".6"/>
+<path d="M416.36 73.36L417.62 70.64" stroke="#61746a" stroke-width=".6"/>
+<path d="M434.00 82.55L437.00 77.35" stroke="#61746a" stroke-width=".6"/>
+<path d="M450.78 93.23L452.50 90.78" stroke="#61746a" stroke-width=".6"/>
+<path d="M466.56 105.34L468.48 103.04" stroke="#61746a" stroke-width=".6"/>
+<path d="M481.22 118.78L483.34 116.66" stroke="#61746a" stroke-width=".6"/>
+<path d="M494.66 133.44L496.96 131.52" stroke="#61746a" stroke-width=".6"/>
+<path d="M506.77 149.22L509.22 147.50" stroke="#61746a" stroke-width=".6"/>
+<path d="M517.45 166.00L522.65 163.00" stroke="#61746a" stroke-width=".6"/>
+<path d="M526.64 183.64L529.36 182.38" stroke="#61746a" stroke-width=".6"/>
+<path d="M534.25 202.02L537.07 200.99" stroke="#61746a" stroke-width=".6"/>
+<path d="M540.23 220.99L543.13 220.21" stroke="#61746a" stroke-width=".6"/>
+<path d="M544.54 240.41L547.49 239.89" stroke="#61746a" stroke-width=".6"/>
+<path d="M547.13 260.13L550.12 259.87" stroke="#61746a" stroke-width=".6"/>
+<!-- The aperture -->
+<path d="M208 478V249Q208 167 320 91Q432 167 432 249V478Z" fill="url(#light)"/>
+<g clip-path="url(#portal)" stroke="#a0ad9b" stroke-width=".6" opacity=".7">
+<path d="M160 430Q250 345 330 392T470 385M160 449Q245 370 318 406T470 401M160 469Q250 397 330 427T470 429"/>
+<path d="M168 224Q202 198 236 219Q256 186 289 205Q319 181 345 207Q391 195 414 218H478M164 235H474M179 242H417M210 249H367"/>
+<path d="M169 356Q195 331 225 345Q254 309 280 338Q314 319 341 344H465M175 363H452M188 370H424"/>
+</g>
+<circle cx="320" cy="178" r="28" stroke="#8d9a83" stroke-width=".7"/>
+<circle cx="326" cy="174" r="26" fill="#d9ddc9"/>
+<!-- Five archivolts and engraved stone -->
+<g stroke="#425c4d" stroke-linejoin="round">
+<path d="M168 482V249Q168 142 320 42Q472 142 472 249V482L432 478V249Q432 167 320 91Q208 167 208 249V478Z" fill="#c1cabe" stroke-width="1.2"/>
+<path d="M168 482V249Q168 142 320 42Q472 142 472 249V482L460 480V249Q460 150 320 56Q180 150 180 249V480Z" fill="url(#hatch)" stroke-width=".8"/>
+<path d="M188 479V249Q188 155 320 66Q452 155 452 249V479M196 479V249Q196 161 320 78Q444 161 444 249V479M203 478V249Q203 164 320 86Q437 164 437 249V478" stroke-width=".9"/>
+<path d="M161 255H213V267H161ZM427 255H479V267H427ZM161 466H213V478H161ZM427 466H479V478H427Z" fill="#cbd0c0"/>
+<path d="M157 478H217V489H157ZM423 478H483V489H423Z" fill="url(#hatch)"/>
+</g>
+<path d="M280 115l-20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M264 134l-20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M248 153l-20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M232 172l-20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M216 191l-20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M200 210l-20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M191 280h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 296h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 312h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 328h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 344h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 360h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 376h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 392h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 408h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 424h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 440h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M191 456h-7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M360 115l20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M376 134l20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M392 153l20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M408 172l20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M424 191l20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M440 210l20 -13" stroke="#526959" stroke-width=".6" opacity=".6"/>
+<path d="M449 280h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 296h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 312h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 328h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 344h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 360h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 376h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 392h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 408h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 424h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 440h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<path d="M449 456h7" stroke="#526959" stroke-width=".5" opacity=".5"/>
+<!-- A sculptural antique key, suspended at the centre -->
+<g transform="translate(317 294) rotate(-32)" stroke="#665d47" stroke-linejoin="round">
+<path d="M-8-20V125H29V110H16V96H30V81H8V-20" fill="url(#gold)" stroke-width="1.4"/>
+<path d="M-3-16V119M3-15V75M14 86H25M14 101H22M13 116H24" stroke-width=".6"/>
+<path d="M-13 12H13V20H-13ZM-12 25H12V31H-12Z" fill="#cfbd95" stroke-width=".9"/>
+<path d="M0-87C15-110 39-97 34-76C60-71 53-43 33-43C34-21 10-11 0-29C-10-11-34-21-33-43C-53-43-60-71-34-76C-39-97-15-110 0-87Z" fill="url(#gold)" stroke-width="1.6"/>
+<path d="M0-80C13-99 28-91 26-74C45-68 43-51 27-50C26-31 10-27 0-43C-10-27-26-31-27-50C-43-51-45-68-26-74C-28-91-13-99 0-80Z" fill="#d0d7c4" stroke-width=".9"/>
+<circle cy="-62" r="14" fill="url(#gold)" stroke-width="1"/><circle cy="-62" r="8" fill="#d0d7c4" stroke-width=".7"/>
+<path d="M-5-101L0-109L5-101M-43-71L-49-64L-44-56M43-71L49-64L44-56" stroke-width=".8"/>
+</g>
+<!-- Ivy climbs around the stone -->
+<g stroke="#52675a" stroke-width="1.1"><path d="M123 493C95 426 148 401 132 342S169 263 148 212M133 476C167 431 144 388 177 353M485 489C512 454 485 420 510 385S482 318 515 281"/></g>
+
+<use href="#leaf" transform="translate(122 475) rotate(-45) scale(1.15)"/>
+<use href="#leaf" transform="translate(120 452) rotate(45) scale(0.95)"/>
+<use href="#leaf" transform="translate(128 429) rotate(-65) scale(1.1)"/>
+<use href="#leaf" transform="translate(136 407) rotate(38) scale(0.9)"/>
+<use href="#leaf" transform="translate(139 379) rotate(-75) scale(1)"/>
+<use href="#leaf" transform="translate(130 353) rotate(30) scale(0.9)"/>
+<use href="#leaf" transform="translate(138 324) rotate(-55) scale(0.9)"/>
+<use href="#leaf" transform="translate(150 293) rotate(40) scale(0.8)"/>
+<use href="#leaf" transform="translate(155 267) rotate(-55) scale(0.7)"/>
+<use href="#leaf" transform="translate(153 241) rotate(35) scale(0.7)"/>
+<use href="#leaf" transform="translate(153 443) rotate(120) scale(0.9)"/>
+<use href="#leaf" transform="translate(154 416) rotate(80) scale(0.75)"/>
+<use href="#leaf" transform="translate(160 389) rotate(135) scale(0.8)"/>
+<use href="#leaf" transform="translate(173 365) rotate(70) scale(0.7)"/>
+<use href="#leaf" transform="translate(490 476) rotate(80) scale(1)"/>
+<use href="#leaf" transform="translate(499 452) rotate(-55) scale(0.9)"/>
+<use href="#leaf" transform="translate(495 428) rotate(60) scale(0.95)"/>
+<use href="#leaf" transform="translate(505 404) rotate(-30) scale(0.85)"/>
+<use href="#leaf" transform="translate(512 380) rotate(65) scale(0.8)"/>
+<use href="#leaf" transform="translate(506 353) rotate(-45) scale(0.7)"/>
+<use href="#leaf" transform="translate(509 326) rotate(70) scale(0.65)"/>
+<use href="#leaf" transform="translate(514 300) rotate(-35) scale(0.6)"/>
+<!-- Plinth and fine perspective lines -->
+<g stroke="#5c7160" stroke-width=".8"><path d="M145 489H495L515 500H125ZM125 501H515V509H125ZM125 509L96 525H544L515 509" fill="#c2cbbd"/><path d="M104 530H536M115 534H525M140 538H500" opacity=".55"/></g>
+<g fill="#526959"><path d="M507 116l3 14 14 3-14 3-3 14-3-14-14-3 14-3Z"/><path d="M113 192l2 8 8 2-8 2-2 8-2-8-8-2 8-2Z"/><circle cx="480" cy="187" r="2"/><circle cx="141" cy="153" r="1.5"/></g>
+<text x="320" y="577" font-family="Georgia,serif" font-style="italic" font-size="20" letter-spacing=".5" fill="#425748" text-anchor="middle">The borrowed world.</text>
+<text x="320" y="598" font-family="sans-serif" font-size="6.5" letter-spacing="2.5" fill="#5c7160" text-anchor="middle">AN EXPLORATION OF ACCESS, TRUST &amp; SHARED THINGS</text>
+</svg>
